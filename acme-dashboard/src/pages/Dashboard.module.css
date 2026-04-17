@@ -1,0 +1,42 @@
+.pageWrap {
+  min-height: 100vh;
+  background-color: #F3F4F6;
+}
+
+.mainArea {
+  padding: 22px 26px 40px;
+}
+
+.gridStats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0;
+}
+
+.cardPanel {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-top: 20px;
+}
+
+@media (max-width: 1024px) {
+  .gridStats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .gridStats {
+    grid-template-columns: 1fr;
+  }
+}
