@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 const NAV_LINKS = [
   { to: '/dashboard', text: 'Dashboard' },
   { to: '/billing', text: 'Billing' },
-  { to: '/billing/aging', text: 'AR aging' },
   { to: '/team', text: 'Team' },
   { to: '/integrations', text: 'Integrations' },
   { to: '/empty', text: 'Reports' },
