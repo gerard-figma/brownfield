@@ -1,33 +1,30 @@
 import { Link } from 'react-router-dom'
 
-export default function NavBar({ brand }) {
-  const items = [
-    { to: '/dashboard', text: 'Dashboard' },
-    { to: '/settings', text: 'Settings' },
-    { to: '/empty', text: 'Reports' },
-  ]
+const NAV_LINKS = [
+  { to: '/dashboard', text: 'Dashboard' },
+  { to: '/billing', text: 'Billing' },
+  { to: '/billing/aging', text: 'AR aging' },
+  { to: '/team', text: 'Team' },
+  { to: '/integrations', text: 'Integrations' },
+  { to: '/empty', text: 'Reports' },
+  { to: '/settings', text: 'Settings' },
+]
 
+/** Global app chrome — same links on every screen. */
+export default function NavBar({ brand }) {
   return (
-    <header
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '14px 22px',
-        borderBottom: '1px solid #E5E7EB',
-        backgroundColor: '#FFFFFF',
-        gap: 6,
-      }}
-    >
-      <div style={{ fontSize: 22, fontWeight: 700, color: '#2563EB' }}>{brand}</div>
-      <nav style={{ display: 'flex', gap: 18 }}>
-        {items.map((it) => (
+    <header className="flex flex-wrap items-center justify-between gap-4 border-b border-[#E5E7EB] bg-white px-6 py-4">
+      <Link to="/dashboard" className="no-underline">
+        <div className="text-[22px] font-bold text-[#2563EB]">{brand}</div>
+      </Link>
+      <nav className="flex flex-wrap gap-4">
+        {NAV_LINKS.map((item) => (
           <Link
-            key={it.to}
-            to={it.to}
-            style={{ color: '#3B82F6', textDecoration: 'none', fontSize: 15, fontWeight: 500 }}
+            key={item.to}
+            to={item.to}
+            className="text-[15px] font-medium text-[#3B82F6] no-underline hover:underline"
           >
-            {it.text}
+            {item.text}
           </Link>
         ))}
       </nav>

@@ -1,13 +1,19 @@
+/**
+ * Primary actions across the app.
+ *
+ * Training note: `extraStyle` lets any caller override padding/colors, which
+ * quickly undoes a consistent button look. Variants also hard-code hex values
+ * that are duplicated elsewhere (no single palette module).
+ */
 export default function BigButton({ children, variant = 'primary', onClick, type = 'button', extraStyle }) {
   const base = {
     padding: '8px 16px',
-    borderRadius: 6,
+    borderRadius: 8,
     fontSize: 14,
     fontWeight: 600,
     cursor: 'pointer',
     border: 'none',
     fontFamily: 'system-ui, sans-serif',
-    marginTop: 0,
   }
 
   let colors = {}
@@ -24,11 +30,7 @@ export default function BigButton({ children, variant = 'primary', onClick, type
   }
 
   return (
-    <button
-      type={type}
-      onClick={onClick}
-      style={{ ...base, ...colors, ...extraStyle }}
-    >
+    <button type={type} onClick={onClick} style={{ ...base, ...colors, ...extraStyle }}>
       {children}
     </button>
   )

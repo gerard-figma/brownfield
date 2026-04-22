@@ -1,3 +1,10 @@
+/**
+ * Boolean toggle used on Settings.
+ *
+ * Training note: props are named `isOn` and `whenToggle`. Most React codebases
+ * (and HTML inputs) use `checked` and `onChange` — renaming would match common
+ * conventions and docs.
+ */
 export default function ToggleSwitch(props) {
   const on = props.isOn
   const toggle = props.whenToggle
@@ -8,28 +15,12 @@ export default function ToggleSwitch(props) {
       role="switch"
       aria-checked={on}
       onClick={() => toggle(!on)}
-      style={{
-        width: 46,
-        height: 26,
-        borderRadius: 999,
-        border: 'none',
-        cursor: 'pointer',
-        backgroundColor: on ? '#10B981' : '#9CA3AF',
-        position: 'relative',
-        padding: 2,
-        marginTop: 12,
-      }}
+      className="relative h-[26px] w-[46px] shrink-0 cursor-pointer rounded-full border-0 p-0.5"
+      style={{ backgroundColor: on ? '#10B981' : '#9CA3AF' }}
     >
       <span
-        style={{
-          display: 'block',
-          width: 22,
-          height: 22,
-          borderRadius: '50%',
-          backgroundColor: '#FFFFFF',
-          marginLeft: on ? 20 : 0,
-          transition: 'margin 0.15s',
-        }}
+        className="block h-[22px] w-[22px] rounded-full bg-white transition-[margin] duration-150"
+        style={{ marginLeft: on ? 20 : 0 }}
       />
     </button>
   )

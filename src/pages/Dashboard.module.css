@@ -1,16 +1,16 @@
 .pageWrap {
   min-height: 100vh;
-  background-color: #F3F4F6;
+  background-color: #f3f4f6;
 }
 
 .mainArea {
-  padding: 22px 26px 40px;
+  padding: 24px 24px 40px;
 }
 
 .gridStats {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
+  gap: 16px;
   margin-top: 16px;
 }
 
@@ -25,8 +25,8 @@
   background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
-  padding: 18px 20px;
-  margin-top: 20px;
+  padding: 20px 24px;
+  margin-top: 24px;
 }
 
 @media (max-width: 1024px) {
