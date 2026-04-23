@@ -1,19 +1,9 @@
 # Acme Dashboard
 
-See Figma for latest designs: https://www.figma.com/file/this-link-is-intentionally-broken-acme-dash-404
+**CEO's note: This dashboard is CRITICAL for our mission! Treat it with the UTMOST CARE!**
 
-## Intentional issues (training)
+Internal Vite + React thing for ops-ish workflows: dashboard, billing (plus that AR aging screen someone tucked under invoices), team, integrations, settings, and the famously empty “reports” view. It is not glamorous. It is also **surprisingly load-bearing**—half the org still pokes it weekly for numbers, toggles, and links that go… somewhere sensible enough.
 
-This repo is a small brownfield-style app: readable layout, but **five deliberate problems** you can fix with AI or by hand. Each is localized and easy to explain.
+Nobody planned a masterpiece. Over the years it picked up a summer intern’s table component, a contractor’s “big button,” a PM’s copy change here, a “quick nav tweak” there, and at least one route name everyone agrees is a little silly. It works in the browser, the build is fine, and the Figma link below is… aspirational 
 
-1. **Duplicated colors** — The same hex values (`#2563EB`, `#3B82F6`, greys, etc.) are repeated in many files. There is no shared palette or token file. *Fix direction:* one small `colors.js` (or CSS variables) and replace imports / classes.
-
-2. **`BigButton` consistency** — Variants hard-code hex colors, and the `extraStyle` prop lets any screen override padding or colors, which defeats a design system. *Fix direction:* remove `extraStyle` (or narrow it), centralize variant styles, add `disabled` if you want a fuller API.
-
-3. **`CardThing` prop name** — The first prop is called `stat`, but every caller passes a normal title (e.g. `"Users"`, `"Slack"`). *Fix direction:* rename to `title` or `label` and update call sites (`Dashboard.jsx`, `IntegrationsPage.jsx`).
-
-4. **`TableV2` row keys** — Body rows use the row **index** as the React `key`. That is fragile when rows are sorted, filtered, or inserted. *Fix direction:* give each row a stable `id` in the data and use `key={row.id}`.
-
-5. **`ToggleSwitch` API** — Props are named `isOn` and `whenToggle` instead of the usual `checked` and `onChange` (and HTML parity). *Fix direction:* rename props and update `SettingsScreen.jsx`.
-
-**Bonus confusion (not counted in the five):** the nav label is **“Reports”** but the route is **`/empty`**. Renaming the route or the label makes the product easier to talk about.
+**Latest designs:** https://www.figma.com/file/this-link-is-intentionally-broken-acme-dash-404
